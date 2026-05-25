@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentalno zdravlje – Vizualizacija</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Analiza podataka o mentalnom zdravlju</h1>
+  </header>
+
+  <!-- FILTER PANEL -->
+  <section id="filters">
+    <div id="country-info" class="hidden">
+  <div id="country-info-content"></div>
+</div>
+    <div class="filter-group">
+      <label>Spol:</label>
+      <button class="filter-btn active" data-key="gender" data-value="all">Svi</button>
+      <button class="filter-btn" data-key="gender" data-value="Male">Muški</button>
+      <button class="filter-btn" data-key="gender" data-value="Female">Ženski</button>
+    </div>
+
+    <div class="filter-group">
+      <label>Sortiranje:</label>
+      <button class="sort-btn active" data-sort="desc">↓ Silazno</button>
+      <button class="sort-btn" data-sort="asc">↑ Uzlazno</button>
+      <button class="sort-btn" data-sort="alpha">A–Z</button>
+    </div>
+
+    <div class="filter-group">
+      <button id="play-btn">▶ Play</button>
+      <span id="time-label"></span>
+      <button id="reset-btn">↺ Reset</button>
+    </div>
+  </section>
+
+  <!-- GRAFOVI -->
+  <main id="dashboard">
+    <div class="chart-box" id="bar-container">
+      <h2>Traženje tretmana po veličini tvrtke</h2>
+      <div id="bar-chart"></div>
+    </div>
+
+    <div class="chart-box" id="donut-container">
+      <h2>Omjer traženja tretmana</h2>
+      <div id="donut-chart"></div>
+    </div>
+
+    <div class="chart-box" id="heatmap-container">
+      <h2>Korelacijska heatmapa</h2>
+      <div id="heatmap-chart"></div>
+    </div>
+
+    <div class="chart-box" id="map-container">
+      <h2>Geografska distribucija</h2>
+      <div id="map-chart"></div>
+    </div>
+
+    <div class="chart-box" id="radar-container">
+      <h2>Profil mentalnog zdravlja po spolu</h2>
+      <div id="radar-chart"></div>
+    </div>
+  </main>
+
+  <!-- TOOLTIP -->
+  <div id="tooltip"></div>
+
+  <!-- D3.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <!-- TopoJSON za kartu -->
+  <script src="https://cdn.jsdelivr.net/npm/topojson@3"></script>
+  <script src="main.js"></script>
+</body>
+</html>
