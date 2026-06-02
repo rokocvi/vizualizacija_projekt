@@ -186,3 +186,85 @@ button.active {
   background: #2E75B6;
   color: white;
 }
+/* FULLSCREEN */
+.chart-box {
+  position: relative;
+}
+
+.fullscreen-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #c8d0db;
+  color: #555;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.fullscreen-btn:hover {
+  background: #2E75B6;
+  color: white;
+  border-color: #2E75B6;
+}
+
+.chart-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-overlay.active {
+  display: flex;
+}
+
+.chart-overlay-inner {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 90vw;
+  height: 88vh;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-overlay-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a5fa8;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-overlay-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.chart-overlay-close:hover {
+  background: #c0392b;
+}

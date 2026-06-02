@@ -6,6 +6,16 @@
   <title>Mentalno zdravlje – Vizualizacija</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+<!-- FULLSCREEN OVERLAY -->
+<div class="chart-overlay" id="chart-overlay">
+  <div class="chart-overlay-inner">
+    <button class="chart-overlay-close" onclick="closeOverlay()">✕ Zatvori</button>
+    <div class="chart-overlay-title" id="overlay-title"></div>
+    <div id="overlay-content"></div>
+  </div>
+</div>
+
 <body>
 
   <header>
@@ -14,9 +24,6 @@
 
   <!-- FILTER PANEL -->
   <section id="filters">
-    <div id="country-info" class="hidden">
-  <div id="country-info-content"></div>
-</div>
     <div class="filter-group">
       <label>Spol:</label>
       <button class="filter-btn active" data-key="gender" data-value="all">Svi</button>
@@ -38,45 +45,56 @@
     </div>
   </section>
 
+  <!-- COUNTRY INFO TRAKA -->
+  <div id="country-info" class="hidden"></div>
+
   <!-- GRAFOVI -->
   <main id="dashboard">
-    <div class="chart-box" id="bar-container">
-      <h2>Traženje tretmana po veličini tvrtke</h2>
-      <div id="bar-chart"></div>
-    </div>
+   <div class="chart-box" id="bar-container">
+  <h2>Traženje tretmana po veličini tvrtke</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('bar-container', 'Traženje tretmana po veličini tvrtke')">⛶ Proširi</button>
+  <div id="bar-chart"></div>
+</div>
 
-    <div class="chart-box" id="donut-container">
-      <h2>Omjer traženja tretmana</h2>
-      <div id="donut-chart"></div>
-    </div>
+<div class="chart-box" id="heatmap-container">
+  <h2>Korelacijska heatmapa</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('heatmap-container', 'Korelacijska heatmapa')">⛶ Proširi</button>
+  <div id="heatmap-chart"></div>
+</div>
 
-    <div class="chart-box" id="heatmap-container">
-      <h2>Korelacijska heatmapa</h2>
-      <div id="heatmap-chart"></div>
-    </div>
+<div class="chart-box" id="map-container">
+  <h2>Geografska distribucija</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('map-container', 'Geografska distribucija')">⛶ Proširi</button>
+  <div id="map-chart"></div>
+</div>
 
-    <div class="chart-box" id="map-container">
-      <h2>Geografska distribucija</h2>
-      <div id="map-chart"></div>
-    </div>
+<div class="chart-box" id="radar-container">
+  <h2>Profil mentalnog zdravlja po spolu</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('radar-container', 'Profil mentalnog zdravlja po spolu')">⛶ Proširi</button>
+  <div id="radar-chart"></div>
+</div>
 
-    <div class="chart-box" id="radar-container">
-      <h2>Profil mentalnog zdravlja po spolu</h2>
-      <div id="radar-chart"></div>
-    </div>
-    <div class="chart-box" id="interfere-container">
-    <h2>Utjecaj mentalnog zdravlja na rad</h2>
-    <div id="interfere-chart"></div>
-  </div>
+<div class="chart-box" id="interfere-container">
+  <h2>Utjecaj mentalnog zdravlja na rad</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('interfere-container', 'Utjecaj mentalnog zdravlja na rad')">⛶ Proširi</button>
+  <div id="interfere-chart"></div>
+</div>
+
+<div class="chart-box" id="age-container">
+  <h2>Distribucija dobi ispitanika</h2>
+  <button class="fullscreen-btn" onclick="openOverlay('age-container', 'Distribucija dobi ispitanika')">⛶ Proširi</button>
+  <div id="age-chart"></div>
+</div>
   </main>
 
   <!-- TOOLTIP -->
   <div id="tooltip"></div>
 
-  <!-- D3.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <!-- TopoJSON za kartu -->
   <script src="https://cdn.jsdelivr.net/npm/topojson@3"></script>
+  <script src="charts-bar-heatmap.js"></script>
+  <script src="charts-map-radar.js"></script>
+  <script src="charts-age-interfere.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
